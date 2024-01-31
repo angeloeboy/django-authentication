@@ -15,3 +15,15 @@ from rest_framework.decorators import api_view
 def dashboard(request):
     # Your view logic for the protected dashboard view
     return Response("This is a protected dashboard view.")
+
+
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def get_dashboard(request):
+    return Response({'message': 'Testing testing 123.'})
+
+@api_view(['GET'])
+def index(request):
+    return Response({'message': 'Testing testing asdfadfasdf.'})  
